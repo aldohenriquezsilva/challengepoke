@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { pokemonApi } from "../api/pokemonApi";
 
-export const useConsulta = (filtro) => {
+export const useConsulta = () => {
     const [resul, setResults] = useState([]);
 
     useEffect(() => {
@@ -10,7 +10,7 @@ export const useConsulta = (filtro) => {
 
    
     const getPokemons = async() => {    
-        const resp = await pokemonApi.get('https://pokeapi.co/api/v2/pokemon/' + filtro);   
+        const resp = await pokemonApi.get('https://pokeapi.co/api/v2/pokemon/');   
         console.log(resp.data.results);
         setResults(resp.data.results);  
       }

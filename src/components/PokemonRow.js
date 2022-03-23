@@ -4,10 +4,9 @@ export const PokemonRow = ({ poke }) => {
   return (
     
         <tr>
-            <td>#</td>
+            <td>{ poke.id }</td>
+            <td><img src={poke.sprites.front_default} width="50"/></td>
             <td>{ poke.name }</td>
-            <td>{ poke.name }</td>
-            <td> Planta</td>
         </tr>
   
   )
