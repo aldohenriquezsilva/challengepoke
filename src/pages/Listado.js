@@ -16,8 +16,8 @@ export const Listado = () => {
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Imagen</th>
           <th scope="col">Nombre</th>
+          <th scope="col">Imagen</th>         
         </tr>
       </thead>
       <tbody>
