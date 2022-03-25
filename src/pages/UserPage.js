@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Consulta } from "./Consulta";
 import { Listado } from "./Listado";
 
 export const UserPage = () => {
+
+  const [busqueda, setBusqueda] = useState(false);
 
 return (
   <>
@@ -10,7 +12,7 @@ return (
     <h5 className="Diaplay-5">El que quiere pokemon que los busque</h5>
     <Consulta/>
     <hr/>
-    <Listado/>
+     { busqueda == false && < Listado/> }
   </>
   )
 }

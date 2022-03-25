@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import { pokemonApi } from "../api/pokemonApi";
 
 import { usePokemon } from '../hooks/usePokemon';
 
 export const Consulta = () => {
 
- const RealizarConsulta = () => {
+  const [busqueda, setBusqueda] = useState(null);
+
+ const RealizarConsulta = async () => {
     let txt_busqueda = document.getElementById('txt_busqueda').value;
     console.log(txt_busqueda);
+    const resp = await pokemonApi.post('http://localhost:8080/api/buscarpokemon/?txt_busqueda='+txt_busqueda);
+    console.log(resp);
 
-    const {result} = usePokemon(txt_busqueda);
-    console.log(result);
 
  }
 
