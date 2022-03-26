@@ -4,23 +4,14 @@ import { usePokemon } from '../hooks/usePokemon';
 
 import { PokemonRow } from '../components/PokemonRow';
 
-export const Listado = () => {
-
-  const { poke } = usePokemon('');  
+export const Listado = ({ txt_busqueda }) => {  
   
+  const { poke } = usePokemon({txt_busqueda}); 
+
   return (
     <>  
     <div className='mt-5'>Aquí va ir el listado de la busqueda
-
-    <table className="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Imagen</th>         
-        </tr>
-      </thead>
-      <tbody>
+    <div className="row">      
         {
           poke.map( poke => (
           <PokemonRow
@@ -29,10 +20,8 @@ export const Listado = () => {
           /> 
           ))
         }
-      </tbody>
-    </table>
-    
-</div>
+      </div>     
+    </div>
 </>
   )
 }
