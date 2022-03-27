@@ -23,9 +23,10 @@ export const Consulta = ({handleSearch}) => {
    handleSearch(busqueda.txt_busqueda);
  }
 
-  return (    
+  return (
     <>
      <form className='form' onSubmit={ handleSubmit }>
+
       <div className="row text-center">
        <div className="input-group mb-3 text-center">
         <input type="text" className="form-control" id="txt_busqueda" name="txt_busqueda" placeholder="Ingrese el nombre a buscar o número" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={ handleChange } value={ busqueda.txt_busqueda }/>
