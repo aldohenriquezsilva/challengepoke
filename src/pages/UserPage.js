@@ -14,12 +14,14 @@ export const UserPage = () => {
     setLoad(true);  
   },[busqueda])
 
-  const handleSearch= (data) => {    
+  const handleSearch= (data) => { 
+    setLoad(true);    
     setBusqueda(data);     
   }  
 
-  const handleListado= (data) => {    
-    setLoad(false);    
+  const handleListado= (data) => {
+    console.log(data);   
+    setLoad(data);    
   }  
 
 return (
@@ -27,9 +29,10 @@ return (
     <h2 className="mt-5 text-left">Buscador de Pokémon</h2>
     <h5 className="Diaplay-5">El que quiere pokemon que los busque</h5>
     <Consulta handleSearch={ handleSearch }/>
-    <hr/>
     { load && <Load/>}
-    <Listado txt_busqueda={ busqueda } handleListado={ handleListado }/> 
+    <hr/>   
+    <Listado txtBusqueda={ busqueda } handleListado={ handleListado }/>
+    <hr/>
     </>
   
   )

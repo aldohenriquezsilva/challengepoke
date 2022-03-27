@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import { pokemonApi } from "../api/pokemonApi";
 
-export const usePokemon = ({txt_busqueda}) => {
+export const usePokemon = ({txtBusqueda}) => {
     
     const [poke, setPokes] = useState([]);
 
   useEffect(() => {    
-      getPokemons(txt_busqueda);
-  }, [txt_busqueda])
+      getPokemons(txtBusqueda);
+  }, [txtBusqueda])
     
-    const getPokemons = async(txt_busqueda) => { 
-      console.log('antes de enviar a la api',txt_busqueda);         
-      const resp = await pokemonApi.post(`http://localhost:8080/api/buscarpokemon/?txt_busqueda=${ txt_busqueda }`); 
-      
-      setPokes(resp.data.result);
-           
+    const getPokemons = async(txtBusqueda) => {             
+      const resp = await pokemonApi.get(`http://localhost:8080/api/buscarpokemon/?txtBusqueda=${ txtBusqueda }`); 
+      console.log(resp);
+      setPokes(resp.data.result);           
     }
      
     return { 

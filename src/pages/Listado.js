@@ -1,35 +1,39 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { usePokemon } from '../hooks/usePokemon';
 
 import { PokemonRow } from '../components/PokemonRow';
 
-export const Listado = ({ txt_busqueda, handleListado }) => {  
+export const Listado = ({ txtBusqueda, handleListado }) => {  
   
-  const { poke } = usePokemon({txt_busqueda}); 
+  const { poke } = usePokemon({txtBusqueda});
 
-  if(poke.length > 0){
-    Load();
-  }
+  Load();  
 
   function Load() {
+    if(poke.length > 0 ){
     handleListado(false);
+    }else if(poke.length == 0 && txtBusqueda === ''){
+      handleListado(true);
+    }else{
+      handleListado(false);
+    }
   }
 
   return (
-    <>  
-   
-    <div className="row">      
+    <>     
+      <div className="row">      
         {
           poke.map( poke => (
-          <PokemonRow
-          key = { poke.id } 
-          poke = { poke }
-          /> 
-          ))         
+            <PokemonRow key = { poke.id } poke = { poke } /> 
+          ))               
         }
-      </div>     
-    
-</>
+        { poke.length == 0 && txtBusqueda !== '' &&
+          <div className="alert alert-warning" role="alert">
+            La búsqueda no encontró resultado
+          </div>
+        }
+      </div>         
+    </>
   )
 }
