@@ -7,15 +7,15 @@ import { Load } from "./Load";
 export const UserPage = () => {
 
   const [busqueda, setBusqueda] = useState("");  
-  const [load, setLoad] = useState(false);  
+  const [load, setLoad] = useState(true);  
 
   useEffect(() => {
     if(busqueda === "") return;
-    setLoad(load);  
+    setLoad(true);  
   },[busqueda])
 
   const handleSearch= (data) => {    
-    setBusqueda(data);
+    setBusqueda(data);     
   }  
 
   const handleListado= (data) => {    
@@ -23,13 +23,14 @@ export const UserPage = () => {
   }  
 
 return (
-  <>
+  <> 
     <h2 className="mt-5 text-left">Buscador de Pokémon</h2>
     <h5 className="Diaplay-5">El que quiere pokemon que los busque</h5>
     <Consulta handleSearch={ handleSearch }/>
     <hr/>
     { load && <Load/>}
-    <Listado txt_busqueda={ busqueda }/> 
-  </>
+    <Listado txt_busqueda={ busqueda } handleListado={ handleListado }/> 
+    </>
+  
   )
 }
