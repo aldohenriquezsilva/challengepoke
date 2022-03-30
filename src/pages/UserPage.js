@@ -19,7 +19,7 @@ export const UserPage = () => {
     setBusqueda(data);     
   }  
 
-  const handleListado= (data) => {
+  const handleList= (data) => {
     console.log(data);   
     setLoad(data);    
   }  
@@ -31,7 +31,7 @@ return (
     <Consulta handleSearch={ handleSearch }/>
     { load && <Load/>}
     <hr/>   
-    <Listado txtBusqueda={ busqueda } handleListado={ handleListado }/>
+    <Listado txtBusqueda={ busqueda } handleList={ handleList }/>
     <hr/>
     </>
   

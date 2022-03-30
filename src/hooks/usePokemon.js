@@ -10,7 +10,7 @@ export const usePokemon = ({txtBusqueda}) => {
   }, [txtBusqueda])
     
     const getPokemons = async(txtBusqueda) => {             
-      const resp = await pokemonApi.get(`http://localhost:8080/api/buscarpokemon/?txtBusqueda=${ txtBusqueda }`); 
+      const resp = await pokemonApi.get(`http://localhost:8080/api/searchpokemon/?txtBusqueda=${ txtBusqueda }`); 
       console.log(resp);
       setPokes(resp.data.result);           
     }

@@ -4,7 +4,7 @@ import { usePokemon } from '../hooks/usePokemon';
 
 import { PokemonRow } from '../components/PokemonRow';
 
-export const Listado = ({ txtBusqueda, handleListado }) => {  
+export const Listado = ({ txtBusqueda, handleList }) => {  
   
   const { poke } = usePokemon({txtBusqueda});
 
@@ -12,11 +12,11 @@ export const Listado = ({ txtBusqueda, handleListado }) => {
 
   function Load() {
     if(poke.length > 0 ){
-    handleListado(false);
+      handleList(false);
     }else if(poke.length == 0 && txtBusqueda === ''){
-      handleListado(true);
+      handleList(true);
     }else{
-      handleListado(false);
+      handleList(false);
     }
   }
 

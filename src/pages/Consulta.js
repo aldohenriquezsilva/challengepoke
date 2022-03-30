@@ -23,14 +23,13 @@ export const Consulta = ({handleSearch}) => {
  }
 
  const onKeyPress = (evento) => {
-  var regex = new RegExp("^[a-zA-Z ]+$");
+  var regex = new RegExp("^[a-zA-Z -]+$");
   var key = String.fromCharCode(!evento.charCode ? evento.which : evento.charCode);
   if (!regex.test(key)) {
     evento.preventDefault();
     return false;
   }
  }
-
  
 
   return (
