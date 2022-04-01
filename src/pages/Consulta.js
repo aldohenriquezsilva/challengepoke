@@ -12,8 +12,7 @@ export const Consulta = ({handleSearch}) => {
    setBusqueda({ 
      ...busqueda,
      [e.target.name]: e.target.value
-    });   
-
+    }); 
  }
 
  const handleSubmit = async (e) => {
