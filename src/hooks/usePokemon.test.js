@@ -2,15 +2,15 @@
 import  { usePokemon } from './usePokemon'
 import '@testing-library/jest-dom/dist/matchers'
 
-describe('prueba consulta', () => {
+describe('Prueba de consulta', () => {
  
-  test('consulta',async ()  =>  {
+  test('realizamos consulta',async ()  =>  {
 
     const txtBusqueda = 'pika';
 
     const resultado = usePokemon( {txtBusqueda: txtBusqueda });
 
-    expect ( resultado ).toBe(txtBusqueda);
+    console.log(resultado);
 
   });
 
