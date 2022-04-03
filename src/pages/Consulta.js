@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 
-const formulario = {
-  txtBusqueda: ""
+const form = {
+  txtFilter: ""
 }
 
-export const Consulta = ({handleSearch}) => {
+export const Form = ({handleSearch}) => {
 
-  const [busqueda, setBusqueda] = useState(formulario); 
+  const [search, setSearch] = useState(form); 
 
  const handleChange = (e) => {
-   setBusqueda({ 
-     ...busqueda,
+   setSearch({ 
+     ...search,
      [e.target.name]: e.target.value
     }); 
  }
@@ -18,14 +18,14 @@ export const Consulta = ({handleSearch}) => {
  const handleSubmit = async (e) => {
    e.preventDefault();
    
-   handleSearch(busqueda.txtBusqueda);
+   handleSearch(search.txtFilter);
  }
 
- const onKeyPress = (evento) => {
+ const onKeyPress = (event) => {
   var regex = new RegExp("^[a-zA-Z -]+$");
-  var key = String.fromCharCode(!evento.charCode ? evento.which : evento.charCode);
+  var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
   if (!regex.test(key)) {
-    evento.preventDefault();
+    event.preventDefault();
     return false;
   }
  }
@@ -37,9 +37,9 @@ export const Consulta = ({handleSearch}) => {
 
       <div className="row text-center">
        <div className="input-group mb-3 text-center">
-        <input type="text" className="form-control" id="txtBusqueda" name="txtBusqueda" 
+        <input type="text" className="form-control" id="txtFilter" name="txtFilter" 
         placeholder="Ingrese nombre del pokémon" aria-label="Recipient's username" 
-        aria-describedby="button-addon2" onChange={ handleChange } value={ busqueda.txtBusqueda }
+        aria-describedby="button-addon2" onChange={ handleChange } value={ search.txtFilter }
         maxLength="15"
         onKeyPress={ onKeyPress }/>
         <button className="btn btn-success" type="submit">Buscar</button>  

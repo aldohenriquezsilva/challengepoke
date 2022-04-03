@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 
-import { Consulta } from "./Consulta";
-import { Listado } from "./Listado";
+import { Form } from "./Consulta";
+import { List } from "./Listado";
 import { Load } from "./Load";
 
 export const UserPage = () => {
 
-  const [busqueda, setBusqueda] = useState("");  
+  const [search, setSearch] = useState("");  
   const [load, setLoad] = useState(true);  
 
   useEffect(() => {
-    if(busqueda === "") return;
+    if(search === "") return;
     setLoad(true);  
-  },[busqueda])
+  },[search])
 
   const handleSearch= (data) => { 
     setLoad(true);    
-    setBusqueda(data);     
+    setSearch(data);     
   }  
 
   const handleList= (data) => {
@@ -28,10 +28,10 @@ return (
   <> 
     <h2 className="mt-5 text-left">Buscador de Pokémon</h2>
     <h5 className="Diaplay-5">El que quiere pokemon que los busque</h5>
-    <Consulta handleSearch={ handleSearch }/>
+    <Form handleSearch={ handleSearch }/>
     { load && <Load/>}
     <hr/>   
-    <Listado txtBusqueda={ busqueda } handleList={ handleList }/>
+    <List txtFilter={ search } handleList={ handleList }/>
     <hr/>
     </>
   

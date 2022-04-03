@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { pokemonApi } from "../api/pokemonApi";
+import { getFilter } from '../api/searchApi';
 
-export const usePokemon = ({txtBusqueda}) => {
+export const usePokemon = ({txtFilter}) => {
     
     const [poke, setPokes] = useState([]);
 
   useEffect(() => {    
-      getPokemons(txtBusqueda);
-  }, [txtBusqueda])
+      getPokemons(txtFilter);
+  }, [txtFilter])
     
-    const getPokemons = async(txtBusqueda) => {             
-      const resp = await pokemonApi.get(`http://localhost:8080/api/searchpokemon/?txtBusqueda=${ txtBusqueda }`); 
-      console.log(resp);
-      setPokes(resp.data.result);           
+    const getPokemons = async(txtFilter) => {             
+      const resp = await getFilter(txtFilter);
+      setPokes(resp);       
     }
      
     return { 

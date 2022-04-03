@@ -4,16 +4,16 @@ import { usePokemon } from '../hooks/usePokemon';
 
 import { PokemonRow } from '../components/PokemonRow';
 
-export const Listado = ({ txtBusqueda, handleList }) => {  
+export const List = ({ txtFilter, handleList }) => {  
   
-  const { poke } = usePokemon({txtBusqueda});
+  const { poke } = usePokemon({txtFilter});
 
   Load();  
 
   function Load() {
     if(poke.length > 0 ){
       handleList(false);
-    }else if(poke.length == 0 && txtBusqueda === ''){
+    }else if(poke.length == 0 && txtFilter === ''){
       handleList(true);
     }else{
       handleList(false);
@@ -28,7 +28,7 @@ export const Listado = ({ txtBusqueda, handleList }) => {
             <PokemonRow key = { poke.id } poke = { poke } /> 
           ))               
         }
-        { poke.length == 0 && txtBusqueda !== '' &&
+        { poke.length == 0 && txtFilter !== '' &&
           <div className="alert alert-warning" role="alert">
             La búsqueda no encontró resultado
           </div>
