@@ -19,8 +19,7 @@ export const UserPage = () => {
     setSearch(data);     
   }  
 
-  const handleList= (data) => {
-    console.log(data);   
+  const handleList= (data) => {     
     setLoad(data);    
   }  
 

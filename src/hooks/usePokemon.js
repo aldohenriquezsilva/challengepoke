@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { pokemonApi } from "../api/pokemonApi";
 import { getFilter } from '../api/searchApi';
 
 export const usePokemon = ({txtFilter}) => {

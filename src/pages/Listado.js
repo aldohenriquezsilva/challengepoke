@@ -6,15 +6,16 @@ import { PokemonRow } from '../components/PokemonRow';
 
 export const List = ({ txtFilter, handleList }) => {  
   
-  const { poke } = usePokemon({txtFilter});
+  const { poke } = usePokemon({ txtFilter });
 
   Load();  
 
   function Load() {
+    console.log(poke);
     if(poke.length > 0 ){
       handleList(false);
     }else if(poke.length == 0 && txtFilter === ''){
-      handleList(true);
+      handleList(true);      
     }else{
       handleList(false);
     }
