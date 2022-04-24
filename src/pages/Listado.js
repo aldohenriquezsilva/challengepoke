@@ -4,32 +4,38 @@ import { usePokemon } from '../hooks/usePokemon';
 
 import { PokemonRow } from '../components/PokemonRow';
 
-export const List = ({ txtFilter, handleList }) => {  
+export const List = ({ txtFilter, setCode , handleList }) => {  
   
   const { poke } = usePokemon({ txtFilter });
-
+  var row = [];
+  let code = setCode;
   Load();  
 
-  function Load() {
-    console.log(poke);
-    if(poke.length > 0 ){
-      handleList(false);
-    }else if(poke.length == 0 && txtFilter === ''){
-      handleList(true);      
+  function Load() {      
+    if(poke.length == 0){
+      handleList(true);
     }else{
-      handleList(false);
+      row = poke.data;
+      code = poke.code;
+      if(code == 0) {
+        handleList(true);
+      }else{
+        handleList(false);
+      }
     }
+
   }
 
   return (
     <>     
       <div className="row">      
         {
-          poke.map( poke => (
+          row.map( poke => (
             <PokemonRow key = { poke.id } poke = { poke } /> 
           ))               
         }
-        { poke.length == 0 && txtFilter !== '' &&
+        { 
+          row.length == 0 && txtFilter !== '' &&
           <div className="alert alert-warning" role="alert">
             La búsqueda no encontró resultado
           </div>

@@ -10,4 +10,16 @@ describe('Test to API', () => {
     expect(typeof result).toBe('object');
   });
 
+  test('code result 200', async ()  =>  {
+    const txtBusqueda = 'ditto';
+    const result = await getFilter(txtBusqueda);    
+    expect(result.code).toBe(200);
+  });
+
+  test('code result 404', async ()  =>  {
+    const txtBusqueda = 'tester';
+    const result = await getFilter(txtBusqueda);    
+    expect(result.code).toBe(404);
+  });
+  
 });

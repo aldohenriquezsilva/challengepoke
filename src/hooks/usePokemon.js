@@ -3,17 +3,17 @@ import { getFilter } from '../api/searchApi';
 
 export const usePokemon = ({txtFilter}) => {
     
-    const [poke, setPokes] = useState([]);
+  const [poke, setPokes] = useState([]);
 
-  useEffect(() => {    
-      getPokemons(txtFilter);
-  }, [txtFilter])
+    useEffect(() => {    
+        getPokemons(txtFilter);
+    }, [txtFilter])
     
     const getPokemons = async(txtFilter) => {             
-      const resp = await getFilter(txtFilter);
+      const resp = await getFilter(txtFilter);      
       setPokes(resp);       
     }
-     
+    
     return { 
         poke
     }

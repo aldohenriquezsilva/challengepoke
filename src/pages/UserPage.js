@@ -19,7 +19,7 @@ export const UserPage = () => {
     setSearch(data);     
   }  
 
-  const handleList= (data) => {     
+  const handleList= (data) => {       
     setLoad(data);    
   }  
 
@@ -30,7 +30,7 @@ return (
     <Form handleSearch={ handleSearch }/>
     { load && <Load/>}
     <hr/>   
-    <List txtFilter={ search } handleList={ handleList }/>
+    <List txtFilter={ search } setCode={ 0 } handleList={ handleList }/>
     <hr/>
     </>
   

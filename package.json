@@ -41,5 +41,13 @@
   },
   "devDependencies": {
     "jest": "^27.5.1"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "lines": 90
+      }
+    }
   }
 }
